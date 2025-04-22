@@ -27,32 +27,24 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-elasticsearch'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-<<<<<<< HEAD
-=======
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
     //xlsx 처리
     implementation 'org.apache.poi:poi:5.2.3'
     implementation 'org.apache.poi:poi-ooxml:5.2.3'
 
->>>>>>> 7ffefd2 (feat: 관광 정보 엑셀 저장 기능 API 및 페이징, 검색 조회 기능 API)
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'org.postgresql:postgresql'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-<<<<<<< HEAD
-=======
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2' // Swagger
->>>>>>> 7ffefd2 (feat: 관광 정보 엑셀 저장 기능 API 및 페이징, 검색 조회 기능 API)
 }
 
 tasks.named('test') {
     useJUnitPlatform()
 }
-<<<<<<< HEAD
-=======
 
 //QueryDSL
 def querydslDir = "$buildDir/generated/querydsl"
@@ -76,4 +68,3 @@ dependencies {
     annotationProcessor "jakarta.persistence:jakarta.persistence-api:3.1.0"
     annotationProcessor "jakarta.annotation:jakarta.annotation-api:2.1.1"
 }
->>>>>>> 7ffefd2 (feat: 관광 정보 엑셀 저장 기능 API 및 페이징, 검색 조회 기능 API)
