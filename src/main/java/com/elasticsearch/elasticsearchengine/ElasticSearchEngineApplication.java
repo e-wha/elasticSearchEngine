@@ -11,7 +11,3 @@ public class ElasticSearchEngineApplication {
     }
 
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 7ffefd2 (feat: 관광 정보 엑셀 저장 기능 API 및 페이징, 검색 조회 기능 API)
