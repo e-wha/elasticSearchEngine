@@ -1,16 +1,13 @@
 package com.elasticsearch.elasticsearchengine.service;
 
-import com.elasticsearch.elasticsearchengine.domain.Tour;
-import com.elasticsearch.elasticsearchengine.dto.ExcelSaveTourListResponseDto;
+import com.elasticsearch.elasticsearchengine.domain.TouristAttreaction;
 import com.elasticsearch.elasticsearchengine.dto.TourListDto;
-import com.elasticsearch.elasticsearchengine.dto.TourListResponseDto;
 import com.elasticsearch.elasticsearchengine.repository.TourRepository;
+import com.elasticsearch.elasticsearchengine.vo.ExcelSaveTourListResponseVo;
+import com.elasticsearch.elasticsearchengine.vo.TourListResponseVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -33,11 +30,11 @@ public class TourServiceImpl implements TourService {
 
     @Override
     @Transactional
-    public ExcelSaveTourListResponseDto excelSaveTourList(MultipartFile file) throws IOException {
+    public ExcelSaveTourListResponseVo excelSaveTourList(MultipartFile file) throws IOException {
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
 
-        List<Tour> TourToSave = new ArrayList<>();
+        List<TouristAttreaction> TouristAttreactionToSave = new ArrayList<>();
         List<String> errors = new ArrayList<>();
         int successCount = 0;
         int failedCount = 0;
@@ -51,44 +48,62 @@ public class TourServiceImpl implements TourService {
                 String contentId = getCellValue(row.getCell(0));
                 String contentTypeId = getCellValue(row.getCell(1));
                 String title = getCellValue(row.getCell(2));
-                String addr = getCellValue(row.getCell(3));
-                String zipCode = getCellValue(row.getCell(4));
-                String areaCode = getCellValue(row.getCell(5));
-                String sigunguCode = getCellValue(row.getCell(6));
-                String category = getCellValue(row.getCell(7));
-                String sideCategory = getCellValue(row.getCell(8));
-                String tags = getCellValue(row.getCell(9));
-                String thumbnail = getCellValue(row.getCell(10));
-                String mapx = getCellValue(row.getCell(11));
-                String mapy = getCellValue(row.getCell(12));
-                String createdTime = getCellValue(row.getCell(13));
-                String modifiedTime = getCellValue(row.getCell(14));
+                String sigunguCode = getCellValue(row.getCell(3));
+                String category = getCellValue(row.getCell(4));
+                String tags = getCellValue(row.getCell(5));
+                String addr = getCellValue(row.getCell(6));
+                String thumbnail = getCellValue(row.getCell(7));
+                String createdTime = getCellValue(row.getCell(8));
+                String modifiedTime = getCellValue(row.getCell(9));
+                String overview = getCellValue(row.getCell(10));
+                String homepage = getCellValue(row.getCell(11));
+                String infocenter = getCellValue(row.getCell(12));
+                String opendate = getCellValue(row.getCell(13));
+                String restdate = getCellValue(row.getCell(14));
+                String expguide = getCellValue(row.getCell(15));
+                String expagerange = getCellValue(row.getCell(16));
+                String accomcount = getCellValue(row.getCell(17));
+                String useseason = getCellValue(row.getCell(18));
+                String usetime = getCellValue(row.getCell(19));
+                String parking = getCellValue(row.getCell(20));
+                String mapx = getCellValue(row.getCell(21));
+                String mapy = getCellValue(row.getCell(22));
+                String areaCode = getCellValue(row.getCell(23));
 
-                TourToSave.add(Tour.builder()
+                TouristAttreactionToSave.add(TouristAttreaction.builder()
                                 .contentId(Integer.parseInt(contentId))
                                 .contentTypeId(contentTypeId)
                                 .title(title)
-                                .addr(addr)
-                                .zipCode(zipCode)
-                                .areaCode(areaCode)
                                 .sigunguCode(sigunguCode)
                                 .category(category)
-                                .sideCategory(sideCategory)
                                 .tags(tags)
+                                .addr(addr)
                                 .thumbnail(thumbnail)
-                                .mapx(Double.parseDouble(mapx))
-                                .mapy(Double.parseDouble(mapy))
                                 .createdTime(LocalDate.parse(createdTime, formatter))
                                 .modifiedTime(LocalDate.parse(modifiedTime, formatter))
+                                .overview(overview)
+                                .homepage(homepage)
+                                .infocenter(infocenter)
+                                .opendate(opendate)
+                                .restdate(restdate)
+                                .expguide(expguide)
+                                .expagerange(expagerange)
+                                .accomcount(accomcount)
+                                .useseason(useseason)
+                                .usetime(usetime)
+                                .parking(parking)
+                                .mapx(Double.parseDouble(mapx))
+                                .mapy(Double.parseDouble(mapy))
+                                .areaCode(areaCode)
                                 .build()
                 );
                 successCount++;
             }
         }
 
-        tourRepository.saveAll(TourToSave);
+        tourRepository.saveAll(TouristAttreactionToSave);
 
-        return ExcelSaveTourListResponseDto.builder()
+        return ExcelSaveTourListResponseVo.builder()
                 .successCount(successCount)
                 .failedCount(failedCount)
                 .errors(errors)
@@ -106,41 +121,26 @@ public class TourServiceImpl implements TourService {
     }
 
     @Override
-    public Page<TourListResponseDto> findBycontentTypeId(int page, String contentTypeId) {
-        PageRequest pageable = PageRequest.of(page, 12);
-        Page<Tour> TourPage;
+    public TourListResponseVo findBycontentTypeId(String contentTypeId, Pageable pageable) {
+        Page<TourListDto> TourListPage = tourRepository.findByContentTypeId(contentTypeId, pageable);
 
-        TourPage = tourRepository.findByContentTypeId(contentTypeId, pageable);
-
-        if (TourPage.isEmpty()) {
-            return Page.empty();
-        }
-
-        return TourPage.map(Tour -> TourListResponseDto.builder()
-                .totalList((int)TourPage.getTotalElements())
-                .currentPage(TourPage.getNumber() + 1)
-                .totalPages(TourPage.getTotalPages())
-                .build());
+        return TourListResponseVo.builder()
+                .totalCount((int) TourListPage.getTotalElements())
+                .currentPage(TourListPage.getNumber() + 1)
+                .totalPages(TourListPage.getTotalPages())
+                .tourListDto(TourListPage.toList())
+                .build();
     }
 
     @Override
-    public Page<TourListResponseDto> findByMultiCode(int page, String contentTypeId, String sigunguCode, String sideCategory, List<String> tags) {
-        PageRequest pageable = PageRequest.of(page, 12);
-        Page<TourListDto> TourPage;
+    public TourListResponseVo findByMultiCode(String contentTypeId, String sigunguCode, String category, List<String> tags, Pageable pageable) {
+        Page<TourListDto> TourListPage = tourRepository.findByMultiCode(contentTypeId, sigunguCode, category ,tags ,pageable);
 
-        TourPage = tourRepository.findByMultiCode(contentTypeId, sigunguCode, sideCategory ,tags ,pageable);
-
-        if (TourPage.isEmpty()) {
-            return Page.empty();
-        }
-
-        TourListResponseDto responseDto = TourListResponseDto.builder()
-                .totalList((int) TourPage.getTotalElements())
-                .currentPage(TourPage.getNumber() + 1)
-                .totalPages(TourPage.getTotalPages())
-                .tourListDto(TourPage.toList())
+        return TourListResponseVo.builder()
+                .totalCount((int) TourListPage.getTotalElements())
+                .currentPage(TourListPage.getNumber() + 1)
+                .totalPages(TourListPage.getTotalPages())
+                .tourListDto(TourListPage.toList())
                 .build();
-
-        return new PageImpl<>(List.of(responseDto), pageable, 1);
     }
 }
