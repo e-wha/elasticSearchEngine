@@ -1,0 +1,237 @@
+/* 공통 */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+main {
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 필터 영역 */
+.filters {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.filters-form {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.filters select,
+.filters input[type="text"] {
+    padding: 12px 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    max-width: 350px;
+    width: 100%;
+}
+
+.filters button {
+    padding: 10px 12px;
+    border-radius: 6px;
+    background-color: #267ac8;
+    cursor: pointer;
+    border: none;
+}
+
+.filters button img {
+    width: 20px;
+    height: 20px;
+}
+
+/* 서브타이틀 (태그 버튼) */
+.subtitles {
+    position: relative;
+    margin-top: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.subtitles ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.subtitles .btn {
+    display: inline-block;
+    background-color: rgb(255, 255, 255);
+    font-size: 19px;
+    font-weight: bold;
+    color: rgb(89, 89, 89);
+    cursor: pointer;
+    padding: 15px 20px 13px;
+    margin: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    transition: background-color 0.2s ease;
+}
+
+.subtitles .btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* 정렬/페이지 정보 */
+.list-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+}
+
+.list-info span .number {
+    color: #007bff;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.list-info .sort a {
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.list-info .sort a:hover {
+    text-decoration: underline;
+}
+
+/* 관광지 목록 - 3 x 4 그리드 */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* 관광지 카드 스타일 */
+.tour-card {
+    background-color: white;
+    padding: 16px 16px 0 16px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.tour-card:hover {
+    transform: translateY(-5px);
+}
+
+.tour-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.tour-card h3 {
+    margin: 10px 0 5px;
+    font-size: 18px;
+    color: #333;
+}
+
+.tour-card p {
+    margin: 5px 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.tour-card span {
+    background-color: #f0f0f0;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-right: 5px;
+    font-size: 12px;
+}
+
+.tour-card a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* 공유 아이콘 스타일 */
+.share-icon {
+    max-width: 20px;
+    width: 20px;
+    max-height: 20px;
+    height: 20px;
+    padding-top: 10px;
+    vertical-align: middle;
+}
+
+/* 페이지네이션 */
+.pagination {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.pagination a,
+.pagination strong {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+    border: 1px solid #ccc;
+}
+
+.pagination strong {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    font-weight: bold;
+}
+
+.pagination a:hover {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.pagination a.disabled,
+.pagination strong.disabled {
+    background-color: #f5f5f5;
+    color: #ddd;
+    cursor: not-allowed;
+    border: 1px solid #ddd;
+}
+
+.pagination .prev,
+.pagination .next {
+    font-weight: bold;
+}
+
+.pagination .prev:hover,
+.pagination .next:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.pagination a.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}

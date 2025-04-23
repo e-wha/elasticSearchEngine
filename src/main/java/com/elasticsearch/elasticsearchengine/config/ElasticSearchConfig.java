@@ -18,7 +18,7 @@ import java.util.Base64;
 @Configuration
 public class ElasticSearchConfig {
 
-    private final Dotenv dotenv = Dotenv.configure().directory("C:/git/elasticSearchEngine/docker-elk").load();
+    private final Dotenv dotenv = Dotenv.configure().directory("C:/2Test/elasticSearchEngine/docker-elk").load();
 
     @Bean
     public ElasticsearchClient elasticsearchClient() {

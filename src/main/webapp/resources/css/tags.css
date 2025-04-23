@@ -1,0 +1,45 @@
+.tag-checkboxes {
+    margin-bottom: 30px; /* 원하는 간격으로 조절 */
+}
+/* 기본적으로 a 태그의 밑줄을 없애기 */
+.tag-checkboxes a {
+    text-decoration: none; /* 기본적으로 밑줄 제거 */
+    font-size: 18px;
+}
+
+/* hover 시 밑줄 추가 */
+.tag-checkboxes a:hover {
+    text-decoration: underline; /* hover 시 밑줄 추가 */
+}
+
+/* 버튼 기본 스타일 */
+.btn {
+    padding: 5px 15px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    color: #595959;
+    font-weight: 300;
+    letter-spacing: -0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 5px 8px 0;
+}
+
+/* 선택된 태그 스타일 */
+.btn.selected {
+    background-color: #007bff;
+    color: white;
+    border-color: #0056b3;
+}
+
+/* hover 및 active 상태 */
+.btn:hover {
+    background-color: #f0f0f0;
+    border-color: #b5b5b5;
+}
+
+.btn:active {
+    background-color: #e0e0e0;
+    border-color: #8e8e8e;
+}

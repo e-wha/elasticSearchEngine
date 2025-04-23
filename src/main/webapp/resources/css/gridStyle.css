@@ -1,0 +1,28 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 가로 3개 */
+    gap: 20px; /* 각 카드 사이의 간격 */
+    margin-top: 20px;
+}
+.tour-card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+.tour-card img {
+    width: 100%; /* 사진이 카드 크기에 맞게 리사이즈 */
+    height: auto;
+}
+.tour-card h3 {
+    font-size: 18px;
+    margin-top: 10px;
+}
+.tour-card p {
+    font-size: 14px;
+    margin: 10px 0;
+}
+.tour-card a {
+    text-decoration: none;
+    color: #007BFF;
+}

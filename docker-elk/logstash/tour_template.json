@@ -1,0 +1,133 @@
+{
+  "index_patterns": ["tour*"],
+  "template": {
+    "settings": {
+      "number_of_shards": 1
+    },
+    "mappings": {
+      "properties": {
+        "content_id": { "type": "long" },
+        "content_type_id": {
+          "type": "text",
+          "fields": {
+            "keyword": { "type": "keyword", "ignore_above": 256 }
+          }
+        },
+        "title": {
+          "type": "text",
+          "fields": {
+            "keyword": { "type": "keyword", "ignore_above": 256 }
+          }
+        },
+        "sigungu_code": {
+          "type": "text",
+          "fields": {
+            "keyword": { "type": "keyword", "ignore_above": 256 }
+          }
+        },
+        "category": {
+          "type": "text",
+          "fields": {
+            "keyword": { "type": "keyword", "ignore_above": 256 }
+          }
+        },
+        "tags": {
+          "type": "text",
+          "fields": {
+            "keyword": { "type": "keyword", "ignore_above": 256 }
+          }
+        },
+        "likes": {
+          "type": "text",
+          "fields": {
+            "keyword": { "type": "keyword", "ignore_above": 256 }
+          }
+        },
+        "title_sort": { "type": "keyword" },
+        "addr": {
+          "type": "text",
+          "fields": {
+            "keyword": { "type": "keyword", "ignore_above": 256 }
+          }
+        },
+        "thumbnail": {
+          "type": "text",
+          "fields": {
+            "keyword": { "type": "keyword", "ignore_above": 256 }
+          }
+        },
+        "created_time": { "type": "date" },
+        "modified_time": { "type": "date" },
+        "overview": {
+          "type": "text",
+          "fields": {
+            "keyword": { "type": "keyword", "ignore_above": 10000 }
+          }
+        },
+        "homepage": {
+          "type": "text",
+          "fields": {
+            "keyword": { "type": "keyword", "ignore_above": 2000 }
+          }
+        },
+        "infocenter": {
+          "type": "text",
+          "fields": {
+            "keyword": { "type": "keyword", "ignore_above": 256 }
+          }
+        },"opendate": {
+          "type": "text",
+          "fields": {
+            "keyword": { "type": "keyword", "ignore_above": 256 }
+          }
+        },
+        "expguide": {
+          "type": "text",
+          "fields": {
+            "keyword": { "type": "keyword", "ignore_above": 1000 }
+          }
+        },
+        "expagerange": {
+          "type": "text",
+          "fields": {
+            "keyword": { "type": "keyword", "ignore_above": 256 }
+          }
+        },
+        "accomcount": {
+          "type": "text",
+          "fields": {
+            "keyword": { "type": "keyword", "ignore_above": 256 }
+          }
+        },
+        "useseason": {
+          "type": "text",
+          "fields": {
+            "keyword": { "type": "keyword", "ignore_above": 256 }
+          }
+        },
+        "usetime": {
+          "type": "text",
+          "fields": {
+            "keyword": { "type": "keyword", "ignore_above": 1000 }
+          }
+        },
+        "parking": {
+          "type": "text",
+          "fields": {
+            "keyword": { "type": "keyword", "ignore_above": 256 }
+          }
+        },
+        "mapx": { "type": "float" },
+        "mapy": { "type": "float" },
+        "area_code": {
+          "type": "text",
+          "fields": {
+            "keyword": { "type": "keyword", "ignore_above": 256 }
+          }
+        }
+      }
+    }
+  },
+  "priority": 1,
+  "version": 1
+}

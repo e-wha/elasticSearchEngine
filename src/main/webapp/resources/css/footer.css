@@ -1,0 +1,100 @@
+/* 전체 푸터 배경 영역 */
+footer {
+    width: 100%;
+    background-color: #f8f8f8;
+    border-top: 1px solid #ddd;
+}
+
+/* 기본 레이아웃 */
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 30px;
+    background-color: #f8f8f8;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+/* 상단 줄: 이메일/전화 문의 + 이용약관/개인정보처리방침 */
+.footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+/* 왼쪽 섹션: 이메일, 전화 */
+.footer-left {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* 오른쪽 섹션: 이용약관, 개인정보 */
+.footer-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* separator 스타일 */
+.footer-show.separator {
+    color: #ccc;
+}
+
+/* 이메일 주소 강조 */
+.footer-email,
+.footer-phone {
+    color: #007bc7;
+    font-weight: 500;
+}
+
+/* 주소 정보 */
+.footer-address {
+    margin: 10px 0;
+    color: #555;
+}
+
+/* 구분선 */
+.footer-divider {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 15px 0;
+}
+
+/* 저작권 */
+.footer-credit {
+    text-align: center;
+    color: #888;
+    font-size: 13px;
+}
+
+/* 링크 스타일 */
+.footer-link {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.footer-link.strong {
+    font-weight: 500;
+    color: #1a1a1a;
+    padding: 0 4px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.footer-link.strong:hover {
+    color: #007bc7;
+    border-color: #007bc7;
+    text-decoration: none;
+}
+
+.footer-separator {
+    margin: 0 4px;
+    color: #bbb;
+    font-weight: 300;
+}

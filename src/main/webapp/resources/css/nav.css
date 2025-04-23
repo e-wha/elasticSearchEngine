@@ -1,0 +1,103 @@
+/* 전체 nav 영역 */
+.main-nav {
+    background-color: #A7C7E7;
+    border-bottom: 2px solid #006F91;
+    font-family: 'Noto Sans KR', sans-serif;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    margin-left: 0%;
+    margin-right: 0%;
+    height: 60px;
+    transition: height 0.8s ease;
+}
+
+/* 메인 메뉴 UL */
+.lnb_nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+/* 1차 메뉴 항목 */
+.lnb_nav_item {
+    position: relative; /* 서브 메뉴 위치를 지정할 기준이 될 요소 */
+    margin: 0 100px; /* 각 메뉴 항목 사이의 간격을 설정 */
+}
+
+/* 1차 메뉴 링크 */
+.lnb_nav_link {
+    display: block;
+    padding: 16px 12px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    position: relative;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+/* 서브 메뉴 표시 */
+.lnb_nav_item:hover .depth2,
+.main-nav:hover .depth2 {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0s linear 0s;
+}
+
+/* 2차 서브 메뉴 */
+.depth2 {
+    display: none; /* 기본적으로 숨김 */
+    position: absolute;
+    top: 100%;
+    left: 0; /* 기본 left 값 */
+    background-color: transparent;
+    min-width: 160px;
+    height: 290px;
+    z-index: 1000;
+    padding: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+
+/* 서브 메뉴 항목 스타일 */
+.depth2 li {
+    list-style: none;
+}
+
+.depth2 li a {
+    display: block;
+    padding: 12px 16px;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* hover 시 스타일 */
+.depth2 li a:hover {
+    background-color: #ffffff;
+    color: #007bc7;
+}
+
+/* 각 메뉴 항목에 마우스를 올렸을 때만 해당 서브 메뉴의 배경색 변경 */
+.lnb_nav_item.n1:hover .depth2 {
+    background-color: #fffacd; /* 여행지 메뉴 서브 메뉴 배경색 */
+}
+
+.lnb_nav_item.n2:hover .depth2 {
+    background-color: #fffacd; /* 지역별여행 메뉴 서브 메뉴 배경색 */
+}
+
+.lnb_nav_item.n3:hover .depth2 {
+    background-color: #fffacd; /* 여행준비 메뉴 서브 메뉴 배경색 */
+}
+
+/* 전체 메뉴 영역에 마우스를 올렸을 때 전체 높이를 늘려서 서브 메뉴 표시 */
+.main-nav:hover {
+    height: 350px; /* 메뉴 확장 시 전체 nav 영역의 높이 */
+}
