@@ -1,8 +1,7 @@
 package com.elasticsearch.elasticsearchengine.service;
 
-import com.elasticsearch.elasticsearchengine.dto.ExcelSaveTourListResponseDto;
-import com.elasticsearch.elasticsearchengine.dto.TourListResponseDto;
-import org.springframework.data.domain.Page;
+import com.elasticsearch.elasticsearchengine.vo.ExcelSaveTourListResponseVo;
+import com.elasticsearch.elasticsearchengine.vo.TourListResponseVo;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -11,7 +10,7 @@ import java.util.List;
 
 public interface TourService {
 
-    public ExcelSaveTourListResponseDto excelSaveTourList(MultipartFile file) throws IOException;
-    public Page<TourListResponseDto> findBycontentTypeId(int page, String contentTypeId);
-    public Page<TourListResponseDto> findByMultiCode(int page,  String contentTypeId, String sigunguCode, String sideCategory, List<String> tags);
+    public ExcelSaveTourListResponseVo excelSaveTourList(MultipartFile file) throws IOException;
+    public TourListResponseVo findBycontentTypeId(String contentTypeId, Pageable pageable);
+    public TourListResponseVo findByMultiCode(String contentTypeId, String sigunguCode, String category, List<String> tags, Pageable pageable);
 }
